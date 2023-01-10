@@ -48,7 +48,7 @@ class PengajuanDospem extends RestController {
 
     //Memperbarui data pengajuan dospem yang telah ada
     function index_put() {
-        $id = $this->put('mahasiswa_id');
+        $id = $this->put('pengajuan_id');
          $data = array(
             'mahasiswa_id' => $this->put('mahasiswa_id'),
             'dosen_id' => $this->put('dosen_id'),
@@ -65,8 +65,8 @@ class PengajuanDospem extends RestController {
 
     //Menghapus salah satu data mahasiswa
     function index_delete() {
-        $id = $this->delete('mahasiswa_id');
-        $this->db->where('mahasiswa_id', $id);
+        $id = $this->delete('pengajuan_id');
+        $this->db->where('pengajuan_id', $id);
         $delete = $this->db->delete('pengajuan_dospem');
         if ($delete) {
             $this->response(array('status' => 'success'), 201);

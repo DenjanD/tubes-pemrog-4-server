@@ -17,11 +17,11 @@ class Mahasiswa extends RestController {
     function index_get() {
         $id = $this->get('id');
         if ($id == '') {
-            $this->db->select('mahasiswa.*, dosen.nama');
+            $this->db->select('mahasiswa.*, dosen.nama as dosen');
             $this->db->join('dosen', 'mahasiswa.dosen_id = dosen.dosen_id');
             $mhs = $this->db->get('mahasiswa')->result();
         } else {
-            $this->db->select('mahasiswa.*, dosen.nama');
+            $this->db->select('mahasiswa.*, dosen.nama as dosen');
             $this->db->join('dosen', 'mahasiswa.dosen_id = dosen.dosen_id');
             $this->db->where('id', $id);
             $mhs = $this->db->get('mahasiswa')->result();
