@@ -22,7 +22,7 @@ CREATE TABLE `bimbingan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `bimbingan` (`bimbingan_id`, `mahasiswa_id`, `file_bimbingan`, `judul_bimbingan`, `deskripsi_bimbingan`, `status`, `evaluasi_bimbingan`) VALUES
-(1,	1,	'',	'prediksi kehamilan',	'menentukkan judul',	'Menunggu',	'lebih baik kata dari judulnya panjang ');
+(2,	2,	'',	'prediksi kehamilan',	'menentukkan judul',	'Menunggu',	'lebih baik kata dari judulnya panjang ');
 
 DROP TABLE IF EXISTS `dosen`;
 CREATE TABLE `dosen` (
@@ -35,7 +35,8 @@ CREATE TABLE `dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `dosen` (`dosen_id`, `nip`, `nama`, `password`, `foto`) VALUES
-(1,	12345626,	'Harry ',	'1234556745',	'');
+(2,	123435465,	'Harry ',	'12345',	''),
+(3,	1234567,	'Woro',	'woro12',	'');
 
 DROP TABLE IF EXISTS `mahasiswa`;
 CREATE TABLE `mahasiswa` (
@@ -51,20 +52,23 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `mahasiswa` (`mahasiswa_id`, `npm`, `nama`, `password`, `foto`, `dosen_id`) VALUES
-(1,	1204044,	'Fahira',	'iraa123',	'',	1);
+(2,	1204044,	'Fahira',	'iraa123',	'',	3),
+(3,	1204049,	'Zian Asti Dwiyanti',	'zian',	'',	2);
 
 DROP TABLE IF EXISTS `pengajuan_dospem`;
 CREATE TABLE `pengajuan_dospem` (
-  `mahasiswa_id` int NOT NULL AUTO_INCREMENT,
+  `pengajuan_id` int NOT NULL AUTO_INCREMENT,
+  `mahasiswa_id` int NOT NULL,
   `dosen_id` int NOT NULL,
   `is_diterima` binary(1) NOT NULL,
-  PRIMARY KEY (`mahasiswa_id`),
+  PRIMARY KEY (`pengajuan_id`),
+  KEY `mahasiswa_id` (`mahasiswa_id`),
   KEY `dosen_id` (`dosen_id`),
   CONSTRAINT `pengajuan_dospem_ibfk_1` FOREIGN KEY (`mahasiswa_id`) REFERENCES `mahasiswa` (`mahasiswa_id`),
   CONSTRAINT `pengajuan_dospem_ibfk_2` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`dosen_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `pengajuan_dospem` (`mahasiswa_id`, `dosen_id`, `is_diterima`) VALUES
-(1,	1,	UNHEX('01'));
+INSERT INTO `pengajuan_dospem` (`pengajuan_id`, `mahasiswa_id`, `dosen_id`, `is_diterima`) VALUES
+(1,	2,	3,	UNHEX('01'));
 
--- 2023-01-10 06:26:12
+-- 2023-01-10 15:44:50
