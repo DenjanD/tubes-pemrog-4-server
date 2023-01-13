@@ -6,7 +6,7 @@ require APPPATH . 'libraries/RestController.php';
 
 use chriskacerguis\RestServer\RestController;
 
-class Kontak extends RestController {
+class Bimbingan extends RestController {
 
     function __construct($config = 'rest') {
         parent::__construct($config);
@@ -15,7 +15,7 @@ class Kontak extends RestController {
 
     //Menampilkan data $bimbingan
     function index_get() {
-        $id = $this->get('id');
+        $id = $this->get('bimbingan_id');
         if ($id == '') {
             $bimbingan = $this->db->get('bimbingan')->result();
         } else {
@@ -45,7 +45,7 @@ class Kontak extends RestController {
 
     //Memperbarui data $bimbingan yang telah ada
     function index_put() {
-        $id = $this->put('id');
+        $id = $this->put('bimbingan_id');
         $data = array(
             'bimbingan_id'           => $this->put('bimbingan_id'),
             'mahasiswa_id'           => $this->put('mahasiswa_id'),
@@ -54,7 +54,7 @@ class Kontak extends RestController {
             'deskripsi_bimbingan'    => $this->put('deskripsi_bimbingan'),
             'status'                 => $this->put('status'),
             'evaluasi_bimbingan'     => $this->put('evaluasi_bimbingan'));
-        $this->db->where('id', $id);
+        $this->db->where('bimbingan_id', $id);
         $update = $this->db->update('bimbingan', $data);
         if ($update) {
             $this->response($data, 200);
@@ -65,8 +65,8 @@ class Kontak extends RestController {
 
     //Menghapus salah satu data $bimbingan
     function index_delete() {
-        $id = $this->delete('id');
-        $this->db->where('id', $id);
+        $id = $this->delete('bimbingan_id');
+        $this->db->where('bimbingan_id', $id);
         $delete = $this->db->delete('bimbingan');
         if ($delete) {
             $this->response(array('status' => 'success'), 201);

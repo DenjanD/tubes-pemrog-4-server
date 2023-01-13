@@ -54,7 +54,7 @@ class PengajuanDospem extends RestController {
             'dosen_id' => $this->put('dosen_id'),
             'is_diterima' => $this->put('is_diterima'),
         );
-        $this->db->where('mahasiswa_id', $id);
+        $this->db->where('pengajuan_id', $id);
         $update = $this->db->update('pengajuan_dospem', $data);
         if ($update) {
             $this->response($data, 200);

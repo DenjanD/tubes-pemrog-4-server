@@ -1,0 +1,32 @@
+GET http://tubes-pemrog-4-server.test/index.php/Bimbingan
+content-type: application/json
+
+POST http://tubes-pemrog-4-server.test/index.php/Bimbingan
+content-type: application/json
+
+{
+    "mahasiswa_id": "3",
+    "file_bimbingan": "",
+    "judul_bimbingan": "Pembuatan Aplikasi Perpustakaan",
+    "deskripsi_bimbingan": "BAB 1",
+    "status": "Menunggu",
+    "evaluasi_bimbingan": ""
+}
+
+PUT http://tubes-pemrog-4-server.test/index.php/Bimbingan
+content-type: application/json
+
+{
+    "bimbingan_id": "3",
+    "mahasiswa_id": "3",
+    "file_bimbingan": "",
+    "judul_bimbingan": "Pembuatan Aplikasi Perpustakaan",
+    "deskripsi_bimbingan": "BAB 1",
+    "status": "Menunggu",
+    "evaluasi_bimbingan": "Mantap"
+}
+
+DELETE http://tubes-pemrog-4-server.test/index.php/Bimbingan
+Content-Type: application/x-www-form-urlencoded
+
+bimbingan_id=3

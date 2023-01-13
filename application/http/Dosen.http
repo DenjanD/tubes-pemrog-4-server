@@ -1,0 +1,28 @@
+GET http://tubes-pemrog-4-server.test/index.php/Dosen
+content-type: application/json
+
+POST http://tubes-pemrog-4-server.test/index.php/Dosen
+content-type: application/json
+
+{
+    "nip": 1204039,
+    "nama": "Muammar Zaidan",
+    "password": "zaidan123",
+    "foto": ""
+}
+
+PUT http://tubes-pemrog-4-server.test/index.php/Dosen
+content-type: application/json
+
+{
+    "dosen_id": "4",
+    "nip": 1204039,
+    "nama": "Muammar Zaidan",
+    "password": "zaidan123",
+    "foto": ""
+}
+
+DELETE http://tubes-pemrog-4-server.test/index.php/Dosen
+Content-Type: application/x-www-form-urlencoded
+
+dosen_id=5

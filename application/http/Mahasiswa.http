@@ -1,0 +1,30 @@
+GET http://tubes-pemrog-4-server.test/index.php/Mahasiswa
+content-type: application/json
+
+POST http://tubes-pemrog-4-server.test/index.php/Mahasiswa
+content-type: application/json
+
+{
+    "npm": 1204039,
+    "nama": "Muammar Alfien",
+    "password": "alfien123",
+    "foto": "",
+    "dosen_id": "2"
+}
+
+PUT http://tubes-pemrog-4-server.test/index.php/Mahasiswa
+content-type: application/json
+
+{
+    "mahasiswa_id": "4",
+    "npm": 1204039,
+    "nama": "Alfien",
+    "password": "alfien123",
+    "foto": "",
+    "dosen_id": "2"
+}
+
+DELETE http://tubes-pemrog-4-server.test/index.php/Mahasiswa
+Content-Type: application/x-www-form-urlencoded
+
+mahasiswa_id=6

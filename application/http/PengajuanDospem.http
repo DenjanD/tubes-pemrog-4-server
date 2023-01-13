@@ -1,0 +1,26 @@
+GET http://tubes-pemrog-4-server.test/index.php/PengajuanDospem
+content-type: application/json
+
+POST http://tubes-pemrog-4-server.test/index.php/PengajuanDospem
+content-type: application/json
+
+{
+    "mahasiswa_id": "3",
+    "dosen_id": "3",
+    "is_diterima": "0"
+}
+
+PUT http://tubes-pemrog-4-server.test/index.php/PengajuanDospem
+content-type: application/json
+
+{
+    "pengajuan_id": "5",
+    "mahasiswa_id": "3",
+    "dosen_id": "3",
+    "is_diterima": "1"
+}
+
+DELETE http://tubes-pemrog-4-server.test/index.php/PengajuanDospem
+Content-Type: application/x-www-form-urlencoded
+
+pengajuan_id=5
